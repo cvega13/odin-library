@@ -1,0 +1,50 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+    font-family: Times, "Roboto";
+}
+
+
+/* HEADER */
+.header {
+    background-color: #4681fe;
+    height: 10vh;
+    width: 100vw;
+    font-size: 5vh;
+    font-weight: 900;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.header > p {
+    margin-left: 3vh;
+}
+
+
+
+/* LIBRARY */
+.bookDisplay {
+    background-color: #34569e;
+    height: 90vh;
+    width: auto;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(45vh, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 30vh));
+}
+
+.card {
+    height: 80%;
+    width: 80%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    align-self: center;
+    justify-self: center;
+    box-shadow: 2px 2px 10px 2px;
+}
