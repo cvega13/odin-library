@@ -30,6 +30,10 @@ function displayBooks() {
         let card = document.createElement("div");
         card.classList.add("card");
 
+        // Associate card with index in library array
+        let bookIndex = myLibrary.indexOf(book);
+        card.setAttribute("index", bookIndex);
+
         // Add Book details to card
         let title = document.createElement("p");
         title.classList.add("title");
@@ -53,12 +57,19 @@ function displayBooks() {
 
         let remove = document.createElement("button");
         remove.classList.add("remove");
-        remove.textContent = "remove";
+        remove.textContent = "Remove Book";
+        // Gives button functionality to remove book from library
+        remove.addEventListener("click", (event) => {
+            myLibrary.splice(bookIndex, 1);
+            displayBooks();
+        })
         card.appendChild(remove);
 
         bookDisplay.appendChild(card);
     });
 }
+
+
 
 // Opens form to enter new books
 const addBookButton = document.querySelector(".addBook");
@@ -75,7 +86,7 @@ cancelBtn.addEventListener("click", (event) => {
     dialog.close()
 })
 
-
+// Submits new book to library
 form.addEventListener("submit", (event) => {
     const title = document.querySelector("#title").value;
     const author = document.querySelector("#author").value;
@@ -88,6 +99,9 @@ form.addEventListener("submit", (event) => {
     dialog.close();
     form.reset();
 });
+
+
+
 
 /*
 const JurassicPark = new Book("Jurassic Park", "Michael Crichton", 416, "read");

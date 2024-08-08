@@ -153,10 +153,24 @@ button {
     grid-column: 1 / 2;
     grid-row: 3 / 4;
     border-bottom-left-radius: 20px;
+    font-weight: 900;
 }
+
+/* .read:hover {
+    background-color: #2cba57;
+    color: #ffffff;
+    border-color: #000;
+} */
 
 .remove {
     grid-column: 2 / 3;
     grid-row: 3 / 4;
     border-bottom-right-radius: 20px;
+    font-weight: 900;
+}
+
+.remove:hover {
+    background-color: #d80717;
+    color: #ffffff;
+    border-color: #000;
 }
