@@ -53,6 +53,20 @@ function displayBooks() {
         let read = document.createElement("button");
         read.classList.add("read");
         read.textContent = book.read;
+
+        // Assign initial read and give toggle function
+        read.setAttribute("read", book.read)
+        
+        read.addEventListener("click", (event) => {
+            if (event.target.getAttribute("read") == "Already Read") {
+                myLibrary[bookIndex].read = "Not Read Yet";
+            }
+            else if (event.target.getAttribute("read") == "Not Read Yet") {
+                myLibrary[bookIndex].read = "Already Read";
+            }
+            displayBooks();
+        });
+
         card.appendChild(read);
 
         let remove = document.createElement("button");
@@ -62,7 +76,7 @@ function displayBooks() {
         remove.addEventListener("click", (event) => {
             myLibrary.splice(bookIndex, 1);
             displayBooks();
-        })
+        });
         card.appendChild(remove);
 
         bookDisplay.appendChild(card);

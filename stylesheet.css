@@ -156,11 +156,15 @@ button {
     font-weight: 900;
 }
 
-/* .read:hover {
+.read[read="Already Read"] {
     background-color: #2cba57;
     color: #ffffff;
-    border-color: #000;
-} */
+}
+
+.read[read="Not Read Yet"] {
+    background-color: #d80717;
+    color: #ffffff;
+}
 
 .remove {
     grid-column: 2 / 3;
@@ -172,5 +176,4 @@ button {
 .remove:hover {
     background-color: #d80717;
     color: #ffffff;
-    border-color: #000;
 }
