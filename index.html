@@ -12,16 +12,46 @@
 <body>
     <div class="header">
         <p>My Library</p>
-    </div>
+        <dialog class="addBookDialog">
+            <form class="newBookDiv" onsubmit="return false">
+                <p>Add a book to your Library</p>
+                    <label>
+                        Title: 
+                        <input type="text" id="title" required>
+                    </label>
 
-    <div class="bookDisplay">
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
-        <div class="card"></div>
+                    <label>
+                        Author: 
+                        <input type="text" id="author" required>
+                    </label>
+
+                    <label>
+                        Pages: 
+                        <input type="number" id="pages"required>
+                    </label>
+
+                    <label class="radioInputs">
+                        <p>Have you read this book?: </p>
+                        <label class="radio" for="read">
+                            <input type="radio" id="read" name="readBook" value="Read" required>
+                            Read
+                        </label>
+                        
+                        <label class="radio" for="notRead">
+                            <input type="radio" id="notRead" name="readBook" value="Not Read">
+                            Not Read
+                        </label>
+                    </label>
+
+                    <div class="newBookButtons">
+                        <button class="cancelBtn">Cancel</button>
+                        <button class="confirmBtn" type="submit">Confirm</button>
+                    </div>
+            </form>
+        </dialog>
+        <button class="addBook">ADD BOOK</button>
     </div>
+    <div class="bookDisplay"></div>
     <script src="javascript.js"></script>
 </body>
 </html>
