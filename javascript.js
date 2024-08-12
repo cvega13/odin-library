@@ -1,13 +1,16 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function() {
+class Book {
+    constructor (title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    
+    get info() {
         return title + " by " + author + ", " + pages + " pages, " + read; 
-    };
+    }
 }
 
 // Adds a Book object to the library
@@ -85,37 +88,39 @@ function displayBooks() {
 
 
 
-// Opens form to enter new books
-const addBookButton = document.querySelector(".addBook");
-const dialog = document.querySelector(".addBookDialog");
-const form = document.querySelector(".newBookDiv");
-const cancelBtn = document.querySelector(".cancelBtn");
-addBookButton.addEventListener("click", (event) => {
-    dialog.showModal();
-})
+function FormController() {
+    const addBookButton = document.querySelector(".addBook");
+    const dialog = document.querySelector(".addBookDialog");
+    const form = document.querySelector(".newBookDiv");
+    const cancelBtn = document.querySelector(".cancelBtn");
 
-// Closes form to enter new books
-cancelBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    dialog.close()
-})
+    // Opens form to enter new books
+    addBookButton.addEventListener("click", (event) => {
+        dialog.showModal();
+    })
 
-// Submits new book to library
-form.addEventListener("submit", (event) => {
-    const title = document.querySelector("#title").value;
-    const author = document.querySelector("#author").value;
-    const pages = document.querySelector("#pages").value;
-    const read = document.querySelector('input[name="readBook"]:checked').value;
+    // Closes form to enter new books
+    cancelBtn.addEventListener("click", (event) => {
+        event.preventDefault();
+        dialog.close()
+    })
 
-    const newBook = new Book(title, author, pages, read);
-    addBookToLibrary(newBook);
-    displayBooks();
-    dialog.close();
-    form.reset();
-});
+    // Submits new book to library
+    function formSubmitHandler() {
+        const title = document.querySelector("#title").value;
+        const author = document.querySelector("#author").value;
+        const pages = document.querySelector("#pages").value;
+        const read = document.querySelector('input[name="readBook"]:checked').value;
 
-
-
+        const newBook = new Book(title, author, pages, read);
+        addBookToLibrary(newBook);
+        displayBooks();
+        dialog.close();
+        form.reset();
+    }
+    form.addEventListener("submit", formSubmitHandler);
+}
+FormController();
 
 /*
 const JurassicPark = new Book("Jurassic Park", "Michael Crichton", 416, "read");
